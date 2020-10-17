@@ -24,6 +24,10 @@ Added randomizer for dance game input delay
 Fixed stupid 8 energy cost, now its manual.
 Re-added breakpoint #2 code, only use if you are ending up with errors where game shows right but program read it as "left".
 Added #RequireAdmin as WizTool launches w101 as Admin.
+-Update release by St. Jimmy 10-17-20
+Reverted to original pixelsearch in 1 case
+Reduced delay between turns
+Energy Elixir redone, also no infinitely loops (keeps buying energy until pet is leveled up)
 
 
 Backup folder is for if you are having errors while in dance game.

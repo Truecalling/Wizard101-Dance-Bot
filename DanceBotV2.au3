@@ -1,5 +1,7 @@
 #include <Array.au3>
 #RequireAdmin
+;Credits to Zachary King and Ben Coombe for this project
+;Fix/Addon Release by St. Jimmy
 WinActivate("Wizard101")
 HotKeySet("q", "_Exit")
 Local $Loop = 1
@@ -8,7 +10,7 @@ Local $Age = InputBox("Cost to play?", "2 = Baby, 4 = Teen, 6 = Adult, 8 = Ancie
 Local $Level = InputBox("What Level", "W = Wizard City, K = Krokotopia, M = Marlybone, S = MooShu, D = Dragonspyre")
 Local $Delay = 350
 $Times = Floor($Times/$Age)
-Local $Energy = InputBox("Do you want to buy energy when you run out?", "Y or N")
+;Local $Energy = InputBox("Do you want to buy energy when you run out?", "Y or N")
 WinActivate("Wizard101")
 Local $ClientPos = WinGetPos("Wizard101")
 While $Loop <= $Times
@@ -59,9 +61,10 @@ While $Loop <= $Times
 		 PixelSearch($ClientPos[0] + 415, $ClientPos[1] + 571, $ClientPos[0] + 415, $ClientPos[1] + 571, 0xF1E516, 15)
 		 If Not(@error) Then
 			;second break point fixed 7-20-19 St. Jimmy
+			;BREAK POINT REVERTED TO ORIGINAL 10-16-20 BY ST.JIMMY FOR 2020 SPRING/SUMMER UPDATE
 			;If break point here, replace current line with line below.
-			;PixelSearch($ClientPos[0] + 400, $ClientPos[1] + 582, $ClientPos[0] + 400, $ClientPos[1] + 582, 0x978917, 15)
-			PixelSearch($ClientPos[0] + 389, $ClientPos[1] + 571, $ClientPos[0] + 489, $ClientPos[1] + 571, 0x87831D, 15)
+			PixelSearch($ClientPos[0] + 400, $ClientPos[1] + 582, $ClientPos[0] + 400, $ClientPos[1] + 582, 0x978917, 15)
+			;PixelSearch($ClientPos[0] + 389, $ClientPos[1] + 571, $ClientPos[0] + 489, $ClientPos[1] + 571, 0x87831D, 15)
 			If Not(@Error) Then
 			   ConsoleWrite("LEFT, ")
 			   _ArrayInsert($MoveArray, $Moves, "Left")
@@ -73,7 +76,7 @@ While $Loop <= $Times
 			Sleep(200)
 		 EndIf
 	  WEnd
-	  Sleep(500)
+	  Sleep(400)
 	  For $i = 0 to $Moves
 		 If $MoveArray[$i] == "Down" Then
 			ConsoleWrite("Sending Down, ")
@@ -109,7 +112,8 @@ While $Loop <= $Times
    ;last updated 7-21-19 by St. Jimmy. Fix release designed for 11a community
    $Loaded = False
    While $Loaded == False
-	  PixelSearch($ClientPos[0] + 279, $ClientPos[1] + 556, $ClientPos[0] + 279, $ClientPos[1] + 556, 0xEE76B4, 5)
+	  ;updated 10-16-20 by St. Jimmy. Replaced PS check with new pet emblem
+	  PixelSearch($ClientPos[0] + 271, $ClientPos[1] + 555, $ClientPos[0] + 271, $ClientPos[1] + 555, 0xEF7EB8, 5)
 	  If Not(@Error) Then
 		 $Loaded = True
 	  Else
@@ -118,20 +122,19 @@ While $Loop <= $Times
    WEnd
    $Loop = $Loop + 1
    ;Buy Energy
+   ;Fixed/Improved 10-17-20 by St. Jimmy, changed for new UI updates and now infinitely loops till pet levels up or out of crowns
    If($Energy = "Y") Then
 	  If($Loop > $Times) Then
-		 MouseClick("Left", $ClientPos[0] + 32, $ClientPos[1] + 63)
+		 Send("x")
+		 MouseClick("Left", $ClientPos[0] + 396, $ClientPos[1] + 536)
 		 Sleep(150)
-		 MouseClick("Left", $ClientPos[0] + 510, $ClientPos[1] + 107)
+		 MouseClick("Left", $ClientPos[0] + 398, $ClientPos[1] + 366)
 		 Sleep(150)
-		 MouseClick("Left", $ClientPos[0] + 108, $ClientPos[1] + 513)
+		 MouseClick("Left", $ClientPos[0] + 336, $ClientPos[1] + 421)
 		 Sleep(150)
-		 MouseClick("Left", $ClientPos[0] + 733, $ClientPos[1] + 487)
+		 MouseClick("Left", $ClientPos[0] + 403, $ClientPos[1] + 428)
 		 Sleep(150)
-		 MouseClick("Left", $ClientPos[0] + 286, $ClientPos[1] + 427)
-		 Sleep(150)
-		 MouseClick("Left", $ClientPos[0] + 804, $ClientPos[1] + 67)
-		 Sleep(50)
+		 $Loop = 1
 	  EndIf
    EndIf
 WEnd
