@@ -10,7 +10,7 @@ Local $Age = InputBox("Cost to play?", "2 = Baby, 4 = Teen, 6 = Adult, 8 = Ancie
 Local $Level = InputBox("What Level", "W = Wizard City, K = Krokotopia, M = Marlybone, S = MooShu, D = Dragonspyre")
 Local $Delay = 350
 $Times = Floor($Times/$Age)
-;Local $Energy = InputBox("Do you want to buy energy when you run out?", "Y or N")
+Local $Energy = InputBox("Do you want to buy energy when you run out?", "Y or N")
 WinActivate("Wizard101")
 Local $ClientPos = WinGetPos("Wizard101")
 While $Loop <= $Times
@@ -40,8 +40,12 @@ While $Loop <= $Times
    While PixelGetColor($ClientPos[0] + 332, $ClientPos[1] + 209) = 0x8B0C30
 	  Sleep(20)
    WEnd
-   ConsoleWrite("Game Starting... ")
-   Sleep(1300)
+   ;pixelsearch check for exit button in dance to verify client has loaded, 10-17-20 by St. Jimmy
+   ConsoleWrite("Entering Dance... ")
+   While Not PixelGetColor($ClientPos[0] + 787, $ClientPos[1] + 609) = 0xEF0000
+	  Sleep(50)
+   WEnd
+   ConsoleWrite("...Dance Loaded")
    For $Round = 2 to 6
 	  Local $Moves = 0
 	  While $Moves <= $Round
