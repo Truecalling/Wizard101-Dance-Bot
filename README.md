@@ -27,7 +27,7 @@ Added #RequireAdmin as WizTool launches w101 as Admin.
 -Update release by St. Jimmy 10-17-20
 Reverted to original pixelsearch in 1 case
 Reduced delay between turns
-Energy Elixir redone, also no infinitely loops (keeps buying energy until pet is leveled up)
+Energy Elixir redone, also now infinitely loops (keeps buying energy until pet is leveled up)
 
 
 Backup folder is for if you are having errors while in dance game.
