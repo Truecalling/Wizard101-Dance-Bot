@@ -21,7 +21,7 @@ Thanks to Zachary King for the original.
 Update release by St. Jimmy 7-26-19:
 - Few bug fixes.
 - Added randomizer for dance game input delay.
-- Fixed stupid 8 energy cost, now its manual.
+- Replaced 8 energy cost, now its manual and always counts correctly.
 - Re-added breakpoint #2 code, only use if you are ending up with errors where game shows right but program read it as "left".
 - Added #RequireAdmin as WizTool launches w101 as Admin.
 
