@@ -31,6 +31,9 @@ Update release by St. Jimmy 10-17-20:
 - Energy Elixir redone, also now infinitely loops (keeps buying energy until pet is leveled up).
 - Added a check to verify player has loaded into dance game before searching moves, this was causing massive issues.
 
+Update release by St. Jimmy 3-14-21:
+-Reverted to fixed pixelsearch in 1 case.
+
 
 Backup folder is for if you are having errors while in dance game.
 
