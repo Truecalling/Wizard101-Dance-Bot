@@ -1,5 +1,11 @@
-#include <Array.au3>
 #RequireAdmin
+#Region ;**** Directives created by AutoIt3Wrapper_GUI ****
+#AutoIt3Wrapper_Res_Comment=Originally made by Zachary King, thanks to Ben Coombe for the source code. Fixed Release by St. Jimmy
+#AutoIt3Wrapper_Res_Description=Autoit Pet Dance Trainer
+#AutoIt3Wrapper_Res_Fileversion=69
+#AutoIt3Wrapper_Add_Constants=n
+#EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
+#include <Array.au3>
 ;Credits to Zachary King and Ben Coombe for this project
 ;Fix/Addon Release by St. Jimmy
 WinActivate("Wizard101")
@@ -67,8 +73,8 @@ While $Loop <= $Times
 			;second break point fixed 7-20-19 St. Jimmy
 			;BREAK POINT REVERTED TO ORIGINAL 10-16-20 BY ST.JIMMY FOR 2020 SPRING/SUMMER UPDATE
 			;If break point here, replace current line with line below.
-			PixelSearch($ClientPos[0] + 400, $ClientPos[1] + 582, $ClientPos[0] + 400, $ClientPos[1] + 582, 0x978917, 15)
-			;PixelSearch($ClientPos[0] + 389, $ClientPos[1] + 571, $ClientPos[0] + 489, $ClientPos[1] + 571, 0x87831D, 15)
+			;PixelSearch($ClientPos[0] + 400, $ClientPos[1] + 582, $ClientPos[0] + 400, $ClientPos[1] + 582, 0x978917, 15)
+			PixelSearch($ClientPos[0] + 389, $ClientPos[1] + 571, $ClientPos[0] + 489, $ClientPos[1] + 571, 0x87831D, 15)
 			If Not(@Error) Then
 			   ConsoleWrite("LEFT, ")
 			   _ArrayInsert($MoveArray, $Moves, "Left")
